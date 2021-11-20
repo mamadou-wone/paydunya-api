@@ -13,7 +13,7 @@ const http = require('http');
 
 const port = normalizePort(process.env.PORT || '8000');
 // const host = process.env.HOST || "localhost";
-const host = "localhost";
+// const host = "localhost";
 app.set('port', port);
 
 /**
@@ -42,7 +42,7 @@ io.on('new-message', (message) => {
  * Listen on provided port, on all network interfaces.
  */
 
-server.listen(port, host, () => {
+server.listen(port, () => {
     console.log('server started ', port);
 })
 
