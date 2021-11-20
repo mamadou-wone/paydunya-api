@@ -4,6 +4,7 @@
     "description": "",
     "main": "app.js",
     "scripts": {
+        "start:dev": "nodemon ./bin/www.js",
         "doc": "",
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "npm run doc && node ./bin/www.js"
