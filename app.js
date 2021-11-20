@@ -10,8 +10,8 @@ var mongoose = require("mongoose");
 const app = express();
 // Log requests to the console.
 app.use(logger('dev'));
-var accessLogStream = fs.createWriteStream(__dirname + process.env.LOG_PATH + 'backend.log', { flags: 'a' })
-app.use(logger('combined', { "stream": accessLogStream }));
+// var accessLogStream = fs.createWriteStream(__dirname + process.env.LOG_PATH + 'backend.log', { flags: 'a' })
+// app.use(logger('combined', { "stream": accessLogStream }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
