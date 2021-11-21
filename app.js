@@ -13,7 +13,7 @@ app.use(logger('dev'));
 // var accessLogStream = fs.createWriteStream(__dirname + process.env.LOG_PATH + 'backend.log', { flags: 'a' })
 // app.use(logger('combined', { "stream": accessLogStream }));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 let corsOptions = {
