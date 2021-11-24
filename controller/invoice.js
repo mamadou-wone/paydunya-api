@@ -59,7 +59,7 @@ module.exports = {
 
 
     /**
-     * @api {post} /invoice get invoice by token and phone
+     * @api {get} /invoice get invoice by token and phone
      * @apiName getInvoice
      * @apiGroup Invoice
      *
