@@ -41,25 +41,25 @@ module.exports = {
                 data: req.body.data
             });
             var hash = CryptoJS.SHA512(process.env.MASTER_KEY);
-            console.log(hash.toString());
-            if (hash.toString(CryptoJS.enc.Hex) == req.body.data[0]['hash']) {
-                newInvoice.save().then(async(invoice) => {
-                    res.status(201).send({
-                        success: true,
-                        message: 'Successfully created.',
-                        data: req.body.data,
-                        id: invoice._id,
-                    });
-                    const filter = { _id: invoice._id };
-                    const update = { token: req.body.data[0]['invoice']['token'], phone: req.body.data[0]['customer']['phone'] };
-                    let doc = await Invoice.findOneAndUpdate(filter, update);
-                }).catch((error) => res.status(400).send(error));
-            } else {
-                res.status(503).send({
-                    success: false,
-                    message: 'Vérifier votre master key !',
+            newInvoice.save().then(async(invoice) => {
+                res.status(201).send({
+                    success: true,
+                    message: 'Successfully created.',
+                    data: req.body.data,
+                    id: invoice._id,
                 });
-            }
+                const filter = { _id: invoice._id };
+                const update = { token: req.body.data[0]['invoice']['token'], phone: req.body.data[0]['customer']['phone'] };
+                let doc = await Invoice.findOneAndUpdate(filter, update);
+            }).catch((error) => res.status(400).send(error));
+            // if (hash.toString(CryptoJS.enc.Hex) == req.body.data[0]['hash']) {
+
+            // } else {
+            //     res.status(503).send({
+            //         success: false,
+            //         message: 'Vérifier votre master key !',
+            //     });
+            // }
         } catch (error) {
             console.log(error);
             res.status(500).send(error);
